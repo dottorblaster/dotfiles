@@ -105,7 +105,7 @@ fortune | cowsay
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/blaster/.gem/ruby/gems
+export PATH=$PATH:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/blaster/.gem/ruby/gems
 
 # Minecraft with Optimus and Primus
 alias optiminecraft='primusrun /opt/java6/jre/bin/java -jar Desktop/Minecraft/MinecraftSP.jar'
