@@ -32,7 +32,7 @@ session = ./.rtorrent
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start="./rtactive/*.torrent"
+schedule = watch_directory,5,5,load_start=./rtactive/*.torrent
 schedule = tied_directory,6,5,start_tied=
 schedule = untied_directory,7,5,stop_untied=
 
