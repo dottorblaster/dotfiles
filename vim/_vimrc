@@ -14,3 +14,11 @@ set noswapfile
 set ai
 set si
 set wrap
+
+" Access colors present in 256 colorspace
+let base16colorspace=256
+
+" Colorscheme. I'll set base16-tomorrow
+" You need to install it first.
+" Here the link: https://github.com/chriskempson/base16-vim
+colorscheme base16-tomorrow
