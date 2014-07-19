@@ -25,6 +25,11 @@
   set expandtab
   set smarttab
 
+" Search patterns and company
+  set incsearch
+  set ignorecase
+  set smartcase  " This ignores 'ignorecase' if you type some uppercase shit
+
 " Access colors present in 256 colorspace
   let base16colorspace=256
 
