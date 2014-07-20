@@ -141,4 +141,4 @@ fi
 alias unsleep='sudo hdparm -B 254 /dev/sda'
 
 # Update with a single key, like a ninja
-alias u='sudo apt get update && sudo apt-get dist-upgrade'
+alias u='sudo apt-get update && sudo apt-get dist-upgrade'
