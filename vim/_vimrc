@@ -30,6 +30,13 @@
   set ignorecase
   set smartcase  " This ignores 'ignorecase' if you type some uppercase shit
 
+" Automatically cd into the directory that the file is in
+  set autochdir
+
+" Inject plugins through IoC
+" Start Pathogen
+  execute pathogen#infect()
+
 " Access colors present in 256 colorspace
   let base16colorspace=256
 
@@ -38,6 +45,3 @@
 " Here the link: https://github.com/chriskempson/base16-vim
   colorscheme base16-tomorrow
 
-" Inject plugins through IoC
-" Start Pathogen
-  execute pathogen#infect()
