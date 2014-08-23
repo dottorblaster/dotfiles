@@ -7,5 +7,14 @@
 		"Vintage"
 	],
 	"theme": "Soda Dark.sublime-theme",
+	"trim_automatic_white_space": true,
+	"trim_trailing_white_space_on_save": true,
+
+	//
+	// this is OSX only, use with caution (uncomment if you want to use it, I use Linux too so, you know...)
+	// "open_files_in_new_window": false,
+	//
+
+	"ensure_newline_at_eof_on_save": true,
 	"word_wrap": true
 }
