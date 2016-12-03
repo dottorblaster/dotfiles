@@ -1,0 +1,14 @@
+// Inserire le impostazioni in questo file per sovrascrivere quelle predefinite
+{
+    // Controlla la famiglia di caratteri.
+    "editor.fontFamily": "Hack, Menlo, Monaco, 'Courier New', monospace",
+    "editor.renderLineHighlight": false,
+    "editor.wordWrap": true,
+
+    "window.zoomLevel": -1,
+
+    // Golang plugin settings
+    "go.formatTool": "gofmt",
+    "go.vetOnSave": false,
+    "go.gopath": "/Users/blaster/go"
+}%
