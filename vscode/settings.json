@@ -11,4 +11,4 @@
     "go.formatTool": "gofmt",
     "go.vetOnSave": false,
     "go.gopath": "/Users/blaster/go"
-}%
+}
