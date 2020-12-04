@@ -43,6 +43,7 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -62,6 +63,8 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'tpope/vim-surround'
+
+Plug 'franbach/miramare'
 call plug#end()
 
 " Access colors present in 256 colorspace
@@ -73,18 +76,22 @@ let base16colorspace=256
 colorscheme base16-tomorrow-night
 
 " Airline theme config
-let g:airline_theme='onedark'
+let g:airline_theme='wombat'
 
 " NERDTree stuff
 map <C-n> :NERDTreeTabsToggle<CR>
+let NERDTreeShowHidden=1
 let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_focus_on_files=1
 
 " FZF mapping
 map <C-p> :FZF<CR>
+map <C-f> :Rg<CR>
 
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option({
   \ 'auto_complete_delay': 200,
   \ 'smart_case': v:true,
   \ })
+
+:command CopyFilePath :let @*=expand("%")
