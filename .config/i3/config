@@ -212,7 +212,7 @@ bar {
 
 for_window [class=".*"] border pixel 4
 
-client.focused              #cc6666 #81a2be #81a2be #cc6666 #81a2be
+client.focused              #cc6666 #f0c674 #f0c674 #cc6666 #f0c674
 client.focused_inactive     #d8dee8 #d8dee8 #d8dee8 #d8dee8 #d8dee8
 client.unfocused            #d8dee8 #d8dee8 #d8dee8 #d8dee8 #d8dee8
 client.urgent               #d8dee8 #d8dee8 #d8dee8 #d8dee8 #d8dee8
