@@ -3,4 +3,4 @@ rofi.color-window: #1d1f21, #1d1f21, #1d1f21
 rofi.color-normal: #1d1f21, #d8dee9, #1d1f21, #1d1f21, #cc6666
 rofi.color-active: #1d1f21, #b48ead, #1d1f21, #1d1f21, #93e5cc
 rofi.color-urgent: #1d1f21, #ebcb8b, #1d1f21, #1d1f21, #ebcb8b
-rofi.modi: run,drun,window
+rofi.modi: run,drun,window,clipboard:greenclip print
