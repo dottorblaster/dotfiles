@@ -99,13 +99,6 @@ call deoplete#custom#option({
   \ 'smart_case': v:true,
   \ })
 
-" Required, tell ALE where to find Elixir LS
-let g:ale_elixir_elixir_ls_release = expand("/home/blaster/elixir-ls/rel")
-
-let g:ale_linters = {
-  \   'elixir': ['elixir-ls'],
-  \}
-
 :command CopyFilePath :let @+=expand('%')
 
 function BlogCommands()
