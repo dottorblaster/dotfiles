@@ -15,7 +15,7 @@ set autoread
 set ai
 set si
 set wrap
-set visualbell
+set belloff=all
 set mouse=a
 set nu
 
@@ -44,6 +44,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -63,6 +64,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'tpope/vim-surround'
+
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 Plug 'franbach/miramare'
 call plug#end()
@@ -94,4 +99,20 @@ call deoplete#custom#option({
   \ 'smart_case': v:true,
   \ })
 
-:command CopyFilePath :let @*=expand("%")
+" Required, tell ALE where to find Elixir LS
+let g:ale_elixir_elixir_ls_release = expand("/home/blaster/elixir-ls/rel")
+
+let g:ale_linters = {
+  \   'elixir': ['elixir-ls'],
+  \}
+
+:command CopyFilePath :let @+=expand('%')
+
+function BlogCommands()
+  :Goyo
+  :NERDTreeClose
+  :SoftPencil
+endfunction
+
+:command Blog :call BlogCommands()
+
