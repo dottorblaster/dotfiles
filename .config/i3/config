@@ -158,6 +158,9 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # screenshots
 bindsym $mod+Shift+p --release exec scrot -se 'mv $f /tmp/ && eog /tmp/$f'
 
+# lockscreen
+bindsym $mod+l --release exec multilockscreen -l ~/Immagini/red_mountains.jpg
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
