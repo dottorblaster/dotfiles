@@ -106,6 +106,9 @@ endfunction
 
 :command Blog :call BlogCommands()
 
+"set fillchars=vert:\ 
+highlight VertSplit guibg=NONE guifg=Grey ctermbg=6 ctermfg=0
+
 lua << EOF
 local actions = require('telescope.actions')
 local action_set = require "telescope.actions.set"
