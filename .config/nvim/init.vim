@@ -34,9 +34,6 @@ set termguicolors
 
 " Plug section
 call plug#begin('~/.vim/plugged')
-
-Plug 'chriskempson/base16-vim'
-
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'neovimhaskell/haskell-vim'
@@ -69,11 +66,11 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'lighttiger2505/deoplete-vim-lsp'
 
-Plug 'franbach/miramare'
-
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'RRethy/nvim-base16'
 call plug#end()
 
 " Access colors present in 256 colorspace
@@ -114,6 +111,16 @@ endfunction
 :command Blog :call BlogCommands()
 
 lua << EOF
+local actions = require('telescope.actions')
+local action_set = require "telescope.actions.set"
+
+function my_select(bufnr)
+  vim.api.nvim_input("<esc>")
+  vim.wait(1000, function()
+    return action_set.select(bufnr, "default")
+  end)
+end
+
 require('telescope').setup{
   defaults = {
     vimgrep_arguments = {
@@ -156,6 +163,29 @@ require('telescope').setup{
 
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+  },
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = {
+        }
+      }
+    }
   }
+}
+EOF
+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = { "c", "rust" },  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
 }
 EOF
