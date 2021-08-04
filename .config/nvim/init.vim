@@ -56,9 +56,6 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 Plug 'prabirshrestha/async.vim'
 Plug 'tpope/vim-surround'
 
@@ -71,6 +68,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'RRethy/nvim-base16'
+Plug 'hoob3rt/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 " Access colors present in 256 colorspace
@@ -80,9 +79,6 @@ let base16colorspace=256
 " You need to install it first.
 " Here the link: https://github.com/chriskempson/base16-vim
 colorscheme base16-tomorrow-night
-
-" Airline theme config
-let g:airline_theme='wombat'
 
 " NERDTree stuff
 map <C-n> :NERDTreeTabsToggle<CR>
@@ -175,7 +171,7 @@ require('telescope').setup{
 }
 EOF
 
-lua <<EOF
+lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
@@ -187,5 +183,11 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+EOF
+
+lua << EOF
+require'lualine'.setup{
+  options = { theme  = 'horizon' },
 }
 EOF
