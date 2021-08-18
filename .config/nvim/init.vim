@@ -43,9 +43,9 @@ Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'roxma/nvim-yarp'
+"Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'reedes/vim-pencil'
 Plug 'junegunn/goyo.vim'
@@ -59,9 +59,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'prabirshrestha/async.vim'
 Plug 'tpope/vim-surround'
 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'lighttiger2505/deoplete-vim-lsp'
+"Plug 'prabirshrestha/vim-lsp'
+"Plug 'mattn/vim-lsp-settings'
+"Plug 'lighttiger2505/deoplete-vim-lsp'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -69,7 +71,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'RRethy/nvim-base16'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
+"Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 " Access colors present in 256 colorspace
@@ -87,14 +89,14 @@ let g:nerdtree_tabs_open_on_console_startup=1
 let g:nerdtree_tabs_focus_on_files=1
 
 " FZF mapping
-map <C-p> :Telescope find_files<CR>
-map <C-f> :Telescope live_grep<CR>
+map <C-p> :FZF<CR>
+map <C-f> :Rg<CR>
 
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option({
-  \ 'auto_complete_delay': 200,
-  \ 'smart_case': v:true,
-  \ })
+"let g:deoplete#enable_at_startup = 1
+"call deoplete#custom#option({
+"  \ 'auto_complete_delay': 200,
+"  \ 'smart_case': v:true,
+"  \ })
 
 :command CopyFilePath :let @+=expand('%')
 
@@ -107,7 +109,7 @@ endfunction
 :command Blog :call BlogCommands()
 
 "set fillchars=vert:\ 
-highlight VertSplit guibg=NONE guifg=Grey ctermbg=6 ctermfg=0
+highlight VertSplit guibg=NONE guifg=#373b41 ctermbg=6 ctermfg=0
 
 lua << EOF
 local actions = require('telescope.actions')
@@ -179,7 +181,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   highlight = {
     enable = true,              -- false will disable the whole extension
-    disable = { "c", "rust" },  -- list of language that will be disabled
+    disable = { "c" },  -- list of language that will be disabled
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
     -- Using this option may slow down your editor, and you may see some duplicate highlights.
@@ -190,7 +192,31 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 lua << EOF
+local base16_tomorrow_dark = require'lualine.themes.horizon'
+local white = '#B6B6B6'
+local red = '#AB4642'
+local blue = '#81A2BE'
+local yellow = '#F0C674'
+local green = '#B5BD68'
+local violet = '#B294BB'
+local orange = '#DC9656'
+
+base16_tomorrow_dark.inactive.a.fg = white
+base16_tomorrow_dark.inactive.b.fg = white
+base16_tomorrow_dark.inactive.c.fg = white
+base16_tomorrow_dark.normal.a.bg = green
+base16_tomorrow_dark.insert.a.bg = yellow
+base16_tomorrow_dark.replace.a.bg = orange
+base16_tomorrow_dark.command.a.bg = blue
+base16_tomorrow_dark.visual.a.bg = violet
+
+base16_tomorrow_dark.normal.c.fg = white
+base16_tomorrow_dark.insert.c.fg = white
+base16_tomorrow_dark.command.c.fg = white
+base16_tomorrow_dark.visual.c.fg = white
+base16_tomorrow_dark.replace.c.fg = white
+
 require'lualine'.setup{
-  options = { theme  = 'horizon' },
+  options = { theme  = base16_tomorrow_dark },
 }
 EOF
