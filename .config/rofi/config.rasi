@@ -1,7 +1,8 @@
 /**
  * ROFI Color theme
- * User: mbfraga
- * Copyright: Martin B. Fraga
+ * User: dottorblaster
+ * Based on mbfraga's flat orange theme
+ * Copyright: Alessio Biancalana and Martin B. Fraga
  */
 
 configuration {
@@ -135,9 +136,10 @@ inputbar {
 }
 
 prompt {
-   padding:6px 9px;
+   padding: 6px 18px;
    background-color: @maincolor;
-   text-color:@blackwidget;
+   text-color: @blackwidget;
+   font: "Cantarell Bold 10";
 }
 
 entry {
