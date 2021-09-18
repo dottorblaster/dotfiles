@@ -71,6 +71,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'RRethy/nvim-base16'
 Plug 'hoob3rt/lualine.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 "Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
@@ -104,9 +105,15 @@ function BlogCommands()
   :Goyo
   :NERDTreeClose
   :SoftPencil
+  :lua require('lualine').setup { options = { disabled_filetypes = { 'lua' } } }
+endfunction
+
+function FrontMatterCommand()
+  :read !bundle exec thor fm | sed $'s,\x1b\\[[0-9;]*[a-zA-Z],,g'
 endfunction
 
 :command Blog :call BlogCommands()
+:command FrontMatter :call FrontMatterCommand()
 
 "set fillchars=vert:\ 
 highlight VertSplit guibg=NONE guifg=#373b41 ctermbg=6 ctermfg=0
@@ -219,4 +226,10 @@ base16_tomorrow_dark.replace.c.fg = white
 require'lualine'.setup{
   options = { theme  = base16_tomorrow_dark },
 }
+EOF
+
+lua << EOF
+require('gitsigns').setup({
+  signcolumn = false,
+})
 EOF
