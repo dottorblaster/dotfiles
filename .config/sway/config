@@ -26,7 +26,7 @@ floating_modifier $mod
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/blaster/Immagini/wallhaven-p81zd3.png fill
+output * bg /home/blaster/Immagini/wallhaven-4ym13d.png fill
 #
 # Example configuration:
 #
@@ -53,6 +53,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id greenclip daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id mako
+exec --no-startup-id hawck-macrod
 
 ### Input configuration
 #
@@ -75,7 +76,7 @@ exec --no-startup-id mako
     # Start a terminal
     bindsym $mod+Return exec $term
     
-    bindsym $mod+Space exec wofi --show run
+    bindsym $mod+Space exec "rofi -modi drun,run -show drun"
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -94,12 +95,12 @@ exec --no-startup-id mako
     bindsym $mod+Shift+r reload
 
 
-    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
     bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
     bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-    bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-    bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+    bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+    bindsym XF86MonBrightnessUp exec brightnessctl set +10%
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -180,6 +181,8 @@ exec --no-startup-id mako
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
+    bindsym $mod+Shift+p exec grim -g "$(slurp)" /tmp/$(date +%Y-%d-%m-%H:%M).png && eog /tmp/$(date +%Y-%d-%m-%H:%M).png
 #
 # Scratchpad:
 #
@@ -234,9 +237,7 @@ input type:touchpad {
     natural_scroll enabled
 }
 
-default_border pixel 3
-
-for_window [class=".*"] border pixel 3
+default_border pixel 4
 
 client.focused              #cc6666 #f0c674 #f0c674 #cc6666 #f0c674
 client.focused_inactive     #d8dee8 #d8dee8 #d8dee8 #d8dee8 #d8dee8
