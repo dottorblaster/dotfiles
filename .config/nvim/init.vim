@@ -41,7 +41,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'reasonml-editor/vim-reason-plus'
 Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
+"Plug 'evanleck/vim-svelte', {'branch': 'main'}
 
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'roxma/nvim-yarp'
@@ -200,6 +200,8 @@ EOF
 
 lua << EOF
 local base16_tomorrow_dark = require'lualine.themes.horizon'
+local solid_bg = '#282828'
+local light_solid_bg = '#383838'
 local white = '#B6B6B6'
 local red = '#AB4642'
 local blue = '#81A2BE'
@@ -210,6 +212,7 @@ local orange = '#DC9656'
 
 base16_tomorrow_dark.inactive.a.fg = white
 base16_tomorrow_dark.inactive.b.fg = white
+base16_tomorrow_dark.inactive.b.bg = solid_bg
 base16_tomorrow_dark.inactive.c.fg = white
 base16_tomorrow_dark.normal.a.bg = green
 base16_tomorrow_dark.insert.a.bg = yellow
@@ -217,11 +220,33 @@ base16_tomorrow_dark.replace.a.bg = orange
 base16_tomorrow_dark.command.a.bg = blue
 base16_tomorrow_dark.visual.a.bg = violet
 
+base16_tomorrow_dark.inactive.b.bg = light_solid_bg
+base16_tomorrow_dark.normal.b.bg = light_solid_bg
+base16_tomorrow_dark.insert.b.bg = light_solid_bg
+base16_tomorrow_dark.replace.b.bg = light_solid_bg
+base16_tomorrow_dark.command.b.bg = light_solid_bg
+base16_tomorrow_dark.visual.b.bg = light_solid_bg
+
+
+base16_tomorrow_dark.inactive.b.fg = white
+base16_tomorrow_dark.normal.b.fg = white
+base16_tomorrow_dark.insert.b.fg = white
+base16_tomorrow_dark.replace.b.fg = white
+base16_tomorrow_dark.command.b.fg = white
+base16_tomorrow_dark.visual.b.fg = white
+
 base16_tomorrow_dark.normal.c.fg = white
 base16_tomorrow_dark.insert.c.fg = white
 base16_tomorrow_dark.command.c.fg = white
 base16_tomorrow_dark.visual.c.fg = white
 base16_tomorrow_dark.replace.c.fg = white
+
+base16_tomorrow_dark.inactive.c.bg = solid_bg
+base16_tomorrow_dark.normal.c.bg = solid_bg
+base16_tomorrow_dark.insert.c.bg = solid_bg
+base16_tomorrow_dark.replace.c.bg = solid_bg
+base16_tomorrow_dark.command.c.bg = solid_bg
+base16_tomorrow_dark.visual.c.bg = solid_bg
 
 require'lualine'.setup{
   options = { theme  = base16_tomorrow_dark },
