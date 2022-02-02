@@ -145,11 +145,15 @@ label:focus {
 }
 
 #disk {
-    background-color: #964B00;
+    background-color: #cc6666;
+    color: #000000;
+    border-bottom: 1px solid rgba(29, 31, 33, 0.8);
 }
 
 #backlight {
-    background-color: #90b1b1;
+    color: #000000;
+    background-color: #a1b56c;
+    border-bottom: 1px solid rgba(29, 31, 33, 0.8);
 }
 
 #network {
