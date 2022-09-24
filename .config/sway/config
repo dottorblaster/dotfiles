@@ -26,7 +26,7 @@ floating_modifier $mod
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/blaster/Immagini/wallhaven-4ym13d.png fill
+output * bg /home/blaster/Immagini/wallhaven-5w3jv3.jpg fill
 #
 # Example configuration:
 #
@@ -54,6 +54,16 @@ exec --no-startup-id greenclip daemon
 exec --no-startup-id nm-applet
 exec --no-startup-id mako
 exec --no-startup-id hawck-macrod
+
+# sway does not set DISPLAY/WAYLAND_DISPLAY in the systemd user environment
+# See FS#63021
+# Adapted from xorg's 50-systemd-user.sh, which achieves a similar goal.
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP MOZ_ENABLE_WAYLAND
+
+exec hash dbus-update-activation-environment 2>/dev/null && \
+
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP MOZ_ENABLE_WAYLAND
 
 ### Input configuration
 #
@@ -237,7 +247,7 @@ input type:touchpad {
     natural_scroll enabled
 }
 
-default_border pixel 4
+default_border pixel 1
 
 client.focused              #cc6666 #f0c674 #f0c674 #cc6666 #f0c674
 client.focused_inactive     #d8dee8 #d8dee8 #d8dee8 #d8dee8 #d8dee8
