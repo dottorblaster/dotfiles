@@ -1,0 +1,15 @@
+[user]
+    name = Alessio Biancalana
+    email = dottorblaster@gmail.com
+[alias]
+        co = checkout
+        ci = commit
+        fi = commit --fixup
+        ri = rebase -i --autosquash
+        st = status
+        ff = pull --ff-only
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+        autosquash = !git rebase -i --autosquash $(git merge-base master HEAD)
+        asqmain = !git rebase -i --autosquash $(git merge-base main HEAD)
+        please = push --force-with-lease
+        smi = submodule update --init --recursive
