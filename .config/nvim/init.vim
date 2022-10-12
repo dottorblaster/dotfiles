@@ -71,6 +71,7 @@ Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'L3MON4D3/LuaSnip'
 
@@ -179,6 +180,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' }
   },
 }
 
@@ -213,7 +215,7 @@ end
 
 local lsp_flags = {
   -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
+  debounce_text_changes = 300,
 }
 
 require('lspconfig')['tsserver'].setup{
