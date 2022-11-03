@@ -6,23 +6,28 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["idle_inhibitor", "disk", "network", "keyboard-state", "backlight", "battery", "pulseaudio", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "disk", "memory", "network", "keyboard-state", "backlight", "battery", "pulseaudio", "clock", "tray"],
     // Modules configuration
-    // "sway/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "format": "{name}: {icon}",
-    //     "format-icons": {
-    //         "1": "",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "一",
+            "2": "二",
+            "3": "三",
+            "4": "四",
+            "5": "五",
+            "6": "六",
+            "7": "七",
+            "8": "八",
+            "9": "九",
+            "10": "十",
+            "urgent": "",
+            "focused": "",
+            "default": ""
+         }
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -74,6 +79,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
+        "format": "{:%A %d %B %R}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
@@ -82,7 +88,7 @@
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "{used:0.1f}G/{total:0.1f}G "
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -156,7 +162,6 @@
     },
     "disk": {
         "format": "{free} Free  ",
-        "format-alt": "{percentage}% "
     }
 }
 

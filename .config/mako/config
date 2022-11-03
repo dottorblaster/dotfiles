@@ -1,4 +1,10 @@
 font=Cantarell 9
-border-color=#1d1f21
+default-timeout=10000
+border-color=#f0c674
+border-size=1
 background-color=#1d1f21
 max-icon-size=32
+padding=10
+
+[mode=dnd]
+invisible=1
