@@ -1,15 +1,23 @@
 keymap:
-  - name: Terminal
+  - name: Kitty
     application:
-      only: Tilix
+      only: kitty
+    remap:
+      Alt_L-n: C-Shift-n
+      Alt_L-c: C-Shift-c
+      Alt_L-v: C-Shift-v
+  - name: Tilix
+    application:
+      only: tilix
     remap:
       Alt_L-n: C-Shift-n
       Alt_L-c: C-Shift-c
       Alt_L-v: C-Shift-v
   - name: Firefox
     application:
-      only: Firefox
+      only: firefox
     remap:
+      Alt_L-w: C-w
       Alt_L-f: C-f
   - name: Standard bindings
     remap:
@@ -20,7 +28,6 @@ keymap:
       Alt_L-c: C-c
       Alt_L-v: C-v
       Alt_L-t: C-t
-      Alt_L-w: C-w
       Ctrl-z: KEY_102ND
       Ctrl-Shift-z: Shift-KEY_102ND
       Ctrl-Shift-KEY_BACKSLASH: Shift-KEY_GRAVE
