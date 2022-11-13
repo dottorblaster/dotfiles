@@ -247,6 +247,10 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+input type:pointer {
+    natural_scroll enabled
+}
+
 default_border pixel 1
 
 client.focused              #cc6666 #f0c674 #f0c674 #cc6666 #f0c674
