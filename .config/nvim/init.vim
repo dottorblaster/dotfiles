@@ -82,6 +82,9 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'RRethy/nvim-base16'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'lewis6991/gitsigns.nvim'
+
+Plug 'Pocco81/true-zen.nvim'
+
 "Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
@@ -359,4 +362,20 @@ lua << EOF
 require('gitsigns').setup({
   signcolumn = false,
 })
+
+require("true-zen").setup {
+  inetgrations = {
+    lualine = true,
+  },
+  modes = {
+    ataraxis = {
+      padding = { -- padding windows
+        left = 52,
+        right = 52,
+        top = 10,
+        bottom = 10,
+      },
+    },
+  },
+}
 EOF
