@@ -115,10 +115,11 @@ map <C-f> :Rg<CR>
 :command CopyFilePath :let @+=expand('%')
 
 function BlogCommands()
-  :Goyo
   :NERDTreeClose
+  :luado require('lualine').hide()
+  :TZAtaraxis
   :SoftPencil
-  :lua require('lualine').setup { options = { disabled_filetypes = { 'lua' } } }
+  :NERDTreeClose
 endfunction
 
 function FrontMatterCommand()
