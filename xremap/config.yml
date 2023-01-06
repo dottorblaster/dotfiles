@@ -17,9 +17,11 @@ keymap:
     application:
       only: firefox
     remap:
+      Alt_L-a: C-a
       Alt_L-w: C-w
       Alt_L-f: C-f
       Alt_L-r: C-r
+      Alt_L-t: C-t
   - name: Standard bindings
     remap:
       C-a: left
@@ -28,7 +30,6 @@ keymap:
       C-s: down
       Alt_L-c: C-c
       Alt_L-v: C-v
-      Alt_L-t: C-t
       Ctrl-z: KEY_102ND
       Ctrl-Shift-z: Shift-KEY_102ND
       Ctrl-Shift-KEY_BACKSLASH: Shift-KEY_GRAVE
