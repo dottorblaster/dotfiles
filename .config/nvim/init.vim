@@ -85,6 +85,8 @@ Plug 'lewis6991/gitsigns.nvim'
 
 Plug 'Pocco81/true-zen.nvim'
 
+Plug 'saecki/crates.nvim', { 'tag': 'v0.3.0' }
+
 "Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
@@ -379,4 +381,6 @@ require("true-zen").setup {
     },
   },
 }
+
+require('crates').setup()
 EOF
