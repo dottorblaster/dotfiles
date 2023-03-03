@@ -77,6 +77,9 @@ Plug 'L3MON4D3/LuaSnip'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'RRethy/nvim-base16'
@@ -87,7 +90,7 @@ Plug 'Pocco81/true-zen.nvim'
 
 Plug 'saecki/crates.nvim', { 'tag': 'v0.3.0' }
 
-"Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 " Access colors present in 256 colorspace
@@ -101,8 +104,9 @@ colorscheme base16-tomorrow-night
 " NERDTree stuff
 map <C-n> :NERDTreeTabsToggle<CR>
 let NERDTreeShowHidden=1
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_focus_on_files=1
+"let g:nerdtree_tabs_open_on_console_startup=1
+"let g:nerdtree_tabs_focus_on_files=1
+let g:neo_tree_remove_legacy_commands=1
 
 " FZF mapping
 map <C-p> :FZF<CR>
@@ -383,4 +387,15 @@ require("true-zen").setup {
 }
 
 require('crates').setup()
+
+require("neo-tree").setup({
+  close_if_last_window = true,
+  window = {
+    width = 30,
+  },
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  command = "Neotree toggle",
+})
 EOF
