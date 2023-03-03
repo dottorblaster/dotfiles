@@ -2,9 +2,15 @@
     border: none;
     border-radius: 0;
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: Cantarell, sans-serif;
+    font-family: Cantarell, "Font Awesome 6 Free", sans-serif;
     font-size: 11px;
     min-height: 0;
+}
+
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
 }
 
 window#waybar {
@@ -113,6 +119,8 @@ window#waybar.chromium {
     color: #000000;
     border-bottom: 1px solid rgba(29, 31, 33, 0.8);
 }
+
+
 
 #battery.charging, #battery.plugged {
     color: #000000;
