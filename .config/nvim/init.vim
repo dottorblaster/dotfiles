@@ -121,11 +121,10 @@ map <C-f> :Rg<CR>
 :command CopyFilePath :let @+=expand('%')
 
 function BlogCommands()
-  :NERDTreeClose
+  :Neotree close
   :luado require('lualine').hide()
   :TZAtaraxis
   :SoftPencil
-  :NERDTreeClose
 endfunction
 
 function FrontMatterCommand()
