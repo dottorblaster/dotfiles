@@ -26,9 +26,14 @@ keymap:
       C-d: right
       C-w: up
       C-s: down
+      Alt_L-a: C-a
       Alt_L-c: C-c
       Alt_L-v: C-v
       Alt_L-t: C-t
+      Alt_L-n: C-n
+      Ctrl-z: KEY_102ND
+      Ctrl-equal: volumeup
+      Ctrl-minus: volumedown
       Ctrl-z: KEY_102ND
       Ctrl-Shift-z: Shift-KEY_102ND
       Ctrl-Shift-KEY_BACKSLASH: Shift-KEY_GRAVE
