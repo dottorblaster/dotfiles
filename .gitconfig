@@ -1,6 +1,6 @@
 [user]
     name = Alessio Biancalana
-    email = dottorblaster@gmail.com
+    email = alessio@dottorblaster.it
 [alias]
         co = checkout
         ci = commit
@@ -13,3 +13,5 @@
         asqmain = !git rebase -i --autosquash $(git merge-base main HEAD)
         please = push --force-with-lease
         smi = submodule update --init --recursive
+[gpg]
+	program = gpg2
