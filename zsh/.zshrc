@@ -20,7 +20,7 @@ export PATH="/home/blaster/go/bin:$PATH"
 export PATH="/home/blaster/.local/bin:$PATH"
 
 alias docker_clearall='sudo docker rm $(sudo docker ps -a -q) --force'
-alias cat='bat -p --paging=never'
+alias cat='bat -pp'
 alias vim='nvim'
 
 . /usr/share/LS_COLORS/dircolors.sh
@@ -29,4 +29,5 @@ function sw() {
   i3-msg workspace $1, move workspace to output right
 }
 
-archey3
+echo ''
+pfetch
