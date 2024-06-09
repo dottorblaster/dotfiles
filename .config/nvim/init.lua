@@ -102,7 +102,7 @@ vim.api.nvim_create_user_command(
 
 vim.cmd [[ colorscheme base16-tomorrow-night ]]
 
-vim.api.nvim_set_hl(0, 'VertSplit', {
+vim.api.nvim_set_hl(0, 'WinSeparator', {
   bg = "NONE",
   fg = "#373b41",
   ctermbg = 6,
