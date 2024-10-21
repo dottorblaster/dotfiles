@@ -6,6 +6,14 @@ keymap:
       Alt_L-n: C-Shift-n
       Alt_L-c: C-Shift-c
       Alt_L-v: C-Shift-v
+  - name: Ptyxis
+    application:
+      only: app.devsuite.Ptyxis
+    remap:
+      Alt_L-n: C-Shift-n
+      Alt_L-c: C-Shift-c
+      Alt_L-v: C-Shift-v
+      Alt_L-t: C-Shift-t
   - name: Tilix
     application:
       only: Tilix
