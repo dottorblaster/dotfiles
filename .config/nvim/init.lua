@@ -166,7 +166,7 @@ cmp.setup {
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = {"rust_analyzer", "elixirls", "ts_ls"}
+  ensure_installed = {"rust_analyzer", "elixirls", "ts_ls", "gopls"}
 })
 
 local on_attach = function(client, bufnr)
@@ -207,6 +207,10 @@ require('lspconfig')['elixirls'].setup{
     flags = lsp_flags
 }
 require('lspconfig')['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags
+}
+require('lspconfig')['gopls'].setup{
     on_attach = on_attach,
     flags = lsp_flags
 }
