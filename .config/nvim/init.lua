@@ -166,7 +166,7 @@ cmp.setup {
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-  ensure_installed = {"rust_analyzer", "elixirls", "ts_ls", "gopls"}
+  ensure_installed = {"rust_analyzer", "elixirls", "tsserver", "gopls"}
 })
 
 local on_attach = function(client, bufnr)
@@ -198,7 +198,7 @@ local lsp_flags = {
   debounce_text_changes = 300,
 }
 
-require('lspconfig')['ts_ls'].setup{
+require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags
 }
