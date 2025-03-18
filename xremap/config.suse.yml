@@ -28,6 +28,13 @@ keymap:
       Alt_L-w: C-w
       Alt_L-f: C-f
       Alt_L-r: C-r
+  - name: Zen Browser
+    application:
+      only: zen
+    remap:
+      Alt_L-w: C-w
+      Alt_L-f: C-f
+      Alt_L-r: C-r
   - name: Standard bindings
     remap:
       C-a: left
