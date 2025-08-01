@@ -1,0 +1,5 @@
+[commit]
+    gpgsign = true
+[user]
+    email = alessio.biancalana@suse.com
+    signingkey = 310932ABCB59269A73EBD01089B50E18E4919EF2

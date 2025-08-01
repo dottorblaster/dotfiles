@@ -14,4 +14,19 @@
         please = push --force-with-lease
         smi = submodule update --init --recursive
 [gpg]
-	program = gpg2
+    program = gpg2
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[includeIf "hasconfig:remote.*.url:git@github.com:openSUSE/**"]
+    path = ~/.gitconfig-opensuse
+    
+[includeIf "hasconfig:remote.*.url:git@github.com:SUSE/**"]
+    path = ~/.gitconfig-suse
+
+[includeIf "hasconfig:remote.*.url:git@github.com:StackVista/**"]
+    path = ~/.gitconfig-suse
