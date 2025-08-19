@@ -24,6 +24,9 @@
 
 [includeIf "hasconfig:remote.*.url:git@github.com:openSUSE/**"]
     path = ~/.gitconfig-opensuse
+
+[includeIf "hasconfig:remote.*.url:gitea@src.opensuse.org:*/**"]
+    path = ~/.gitconfig-opensuse
     
 [includeIf "hasconfig:remote.*.url:git@github.com:SUSE/**"]
     path = ~/.gitconfig-suse
