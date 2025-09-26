@@ -1,4 +1,11 @@
 keymap:
+  - name: Wezterm
+    application:
+      only: wezterm
+    remap:
+      Alt_L-n: C-Shift-n
+      Alt_L-c: C-Shift-c
+      Alt_L-v: C-Shift-v
   - name: Kitty
     application:
       only: kitty
