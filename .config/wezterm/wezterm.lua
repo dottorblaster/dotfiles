@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm';
 return {
-  font = wezterm.font("Fira Code", { weight="Medium" }),
+  font = wezterm.font("Fira Code Nerd Font Mono", { weight="DemiBold" }),
   font_size = 8.0,
   window_padding = {
     left = 5,
