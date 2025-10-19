@@ -21,12 +21,15 @@ export PATH="/home/blaster/.local/bin:$PATH"
 
 alias docker_clearall='sudo docker rm $(sudo docker ps -a -q) --force'
 alias cat='bat -pp'
+alias ls='eza'
+alias ll='eza -l'
 alias vim='nvim'
 
-. /usr/share/LS_COLORS/dircolors.sh
+source /home/blaster/.local/share/lscolors.sh
 
-function sw() {
-  i3-msg workspace $1, move workspace to output right
+# Keeping asdf opt-in
+function activate_asdf() {
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 }
 
 echo ''
