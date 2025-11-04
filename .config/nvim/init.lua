@@ -202,22 +202,22 @@ local lsp_flags = {
   debounce_text_changes = 300,
 }
 
-require('lspconfig')['ts_ls'].setup{
+vim.lsp.config('ts_ls', {
     on_attach = on_attach,
     flags = lsp_flags
-}
-require('lspconfig')['elixirls'].setup{
+})
+vim.lsp.config('elixirls', {
     on_attach = on_attach,
     flags = lsp_flags
-}
-require('lspconfig')['rust_analyzer'].setup{
+})
+vim.lsp.config('rust_analyzer', {
     on_attach = on_attach,
     flags = lsp_flags
-}
-require('lspconfig')['gopls'].setup{
+})
+vim.lsp.config('gopls', {
     on_attach = on_attach,
     flags = lsp_flags
-}
+})
 
 require('telescope').setup{
   defaults = {
@@ -284,6 +284,7 @@ vim.keymap.set('n', '<C-f>', builtin.live_grep, {})
 
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ignore_install = { "ipkg" },
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "c", "elixir" },  -- list of language that will be disabled
