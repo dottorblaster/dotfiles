@@ -15,6 +15,12 @@ function box_name {
 # Directory info.
 local current_dir='${PWD/#$HOME/~}'
 
+# Distrobox container info.
+distrobox_prompt_info() {
+    [[ -n "$CONTAINER_ID" ]] && echo "%{$fg[magenta]%}[📦 $CONTAINER_ID]%{$reset_color%} "
+}
+local container_info='$(distrobox_prompt_info)'
+
 # VCS
 YS_VCS_PROMPT_PREFIX1="%{$fg[white]%}on%{$reset_color%} "
 YS_VCS_PROMPT_PREFIX2=":%{$fg[cyan]%}"
@@ -46,11 +52,12 @@ ys_hg_prompt_info() {
 	fi
 }
 
-# Prompt format: \n # TIME USER at MACHINE in [DIRECTORY] on git:BRANCH STATE \n $ 
+# Prompt format: \n # TIME USER at MACHINE [CONTAINER] in [DIRECTORY] on git:BRANCH STATE \n $
 PROMPT="
 %{$fg[cyan]%}%n \
 %{$fg[white]%}at \
 %{$fg[green]%}$(box_name) \
+${container_info}\
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[yellow]%}[${current_dir}]%{$reset_color%} \
 ${hg_info} \
