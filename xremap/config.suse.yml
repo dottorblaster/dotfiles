@@ -6,6 +6,7 @@ keymap:
       Alt_L-n: C-Shift-n
       Alt_L-c: C-Shift-c
       Alt_L-v: C-Shift-v
+      Alt_L-t: C-Shift-t
   - name: Kitty
     application:
       only: kitty
