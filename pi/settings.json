@@ -1,0 +1,10 @@
+{
+  "lastChangelogVersion": "0.78.0",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "kimi-k2.6",
+  "defaultThinkingLevel": "high",
+  "packages": [
+    "npm:@plannotator/pi-extension",
+    "npm:pi-subagents"
+  ]
+}

@@ -1,0 +1,11 @@
+# Secrets
+auth.json
+
+# Ephemeral state
+sessions/
+
+# Installed packages (reinstallable)
+npm/node_modules/
+
+# Extension dev dependencies (reinstallable with `npm install` in each extension)
+extensions/*/node_modules/

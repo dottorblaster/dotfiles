@@ -1,0 +1,23 @@
+{
+  "name": "cardtrader-check",
+  "type": "module",
+  "description": "CardTrader Zero extension — check orders, inventory, and CT0 box",
+  "scripts": {
+    "test": "vitest run",
+    "check": "npx tsx run.ts",
+    "box": "npx tsx run.ts box"
+  },
+  "tools": [
+    {
+      "name": "cardtrader_check",
+      "description": "Check CT0 hub_pending orders against inventory"
+    },
+    {
+      "name": "cardtrader_box",
+      "description": "Show CT0 box: arrived vs pending with individual card counts"
+    }
+  ],
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  }
+}
