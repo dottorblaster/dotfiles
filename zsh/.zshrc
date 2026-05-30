@@ -34,3 +34,10 @@ function activate_asdf() {
 
 echo ''
 pfetch
+
+# bun completions
+[ -s "/home/blaster/.bun/_bun" ] && source "/home/blaster/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
