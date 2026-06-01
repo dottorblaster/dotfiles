@@ -48,3 +48,6 @@ foreground = deddda
 font-family = FiraCode Nerd Font SemBd
 font-size = 8
 font-thicken = true
+
+window-padding-x = 6
+window-padding-y = 6
