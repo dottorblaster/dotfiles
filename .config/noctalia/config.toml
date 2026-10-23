@@ -1,0 +1,373 @@
+# ============================================================================
+# Noctalia v5 configuration (native C++/Wayland shell)
+# Migrated from Noctalia v4 (Quickshell) settings.json / plugins.json.
+# The old v4 files are kept next to this one as *.v4-backup and are ignored
+# by v5, which only reads *.toml files from this directory.
+#
+# Validate with:  noctalia config validate
+# Export merged:  noctalia config export
+# The GUI writes its own overrides to ~/.local/state/noctalia/settings.toml,
+# which wins over this file.
+# ============================================================================
+
+# ── Shell ───────────────────────────────────────────────────────────────────
+[shell]
+font_family = "Adwaita Sans"                       # v4 ui.fontDefault
+avatar_path = "/home/blaster/avatar-blaster.png"   # v4 general.avatarImage
+lang = ""                                          # v4 general.language (auto)
+time_format = "{:%H:%M}"
+date_format = "%A, %x"
+corner_radius_scale = 1.0                          # v4 general.radiusRatio
+telemetry_enabled = false                          # v4 general.telemetryEnabled
+show_location = true
+app_icon_colorize = false
+clipboard_enabled = false                          # v4 appLauncher.enableClipboardHistory = false
+clipboard_auto_paste = "off"                       # v4 appLauncher.autoPasteClipboard = false
+launch_apps_custom_command = ""                    # v4 appLauncher.customLaunchPrefix (unused)
+
+[shell.animation]
+enabled = true                                     # v4 general.animationDisabled = false
+speed = 2.0                                        # v4 general.animationSpeed = 2
+
+[shell.shadow]
+direction = "down"                                 # v4 general.shadowDirection = "bottom"
+
+[shell.launcher]                                   # v4 appLauncher.*
+categories = true                                  # showCategories
+sort_by_usage = true                               # sortByMostUsed
+app_grid = false                                   # viewMode = "list"
+track_usage = true
+pinned = []                                        # pinnedApps
+
+[shell.launcher.providers.session]
+global = true                                      # v4 enableSessionSearch
+
+[shell.mpris]
+blacklist = []                                     # v4 audio.mprisBlacklist
+
+[shell.screen_corners]
+enabled = false                                    # v4 general.showScreenCorners
+
+[shell.panel]
+launcher_position = "center"                       # v4 appLauncher.position
+
+[shell.session]
+grid = false                                       # v4 sessionMenu.largeButtonsLayout = "single-row"
+show_shortcuts = true                              # v4 sessionMenu.showKeybinds
+
+[[shell.session.actions]]
+action = "lock"
+enabled = true
+shortcut = "1"
+countdown_seconds = 10                             # v4 sessionMenu.countdownDuration = 10000
+
+[[shell.session.actions]]
+action = "suspend"
+enabled = true
+shortcut = "2"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "command"
+label = "Hibernate"
+command = "systemctl hibernate"
+enabled = true
+shortcut = "3"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "reboot"
+enabled = true
+shortcut = "4"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "logout"
+enabled = true
+shortcut = "5"
+countdown_seconds = 10
+
+[[shell.session.actions]]
+action = "shutdown"
+enabled = true
+shortcut = "6"
+countdown_seconds = 10
+variant = "destructive"
+
+[[shell.session.actions]]
+action = "reboot_uefi"
+enabled = true
+shortcut = "7"
+countdown_seconds = 10
+
+# ── Theme / palette ─────────────────────────────────────────────────────────
+[theme]
+mode = "light"                                     # v4 colorSchemes.darkMode = false
+shell_mode = "follow"
+source = "wallpaper"                               # v4 colorSchemes.useWallpaperColors = true
+builtin = "Kanagawa"                               # v4 colorSchemes.predefinedScheme
+wallpaper_scheme = "m3-tonal-spot"                 # v4 colorSchemes.generationMethod = "tonal-spot"
+pure_black_dark = false
+sync_color_scheme = true                           # v4 colorSchemes.syncGsettings
+
+# ── Accessibility ───────────────────────────────────────────────────────────
+[accessibility]
+ui_scale = 0.9                                     # v4 general.scaleRatio
+high_contrast = false
+
+# ── Bar ─────────────────────────────────────────────────────────────────────
+[bar]
+order = ["default"]
+
+[bar.default]
+position = "top"                                   # v4 bar.position
+enabled = true
+auto_hide = false                                  # v4 bar.displayMode = "always_visible"
+reserve_space = true                               # v4 bar.enableExclusionZoneInset
+background_opacity = 1.0                           # v4 bar.backgroundOpacity
+radius = 12                                        # v4 bar.frameRadius
+radius_top_left = 12
+radius_top_right = 12
+radius_bottom_left = 12
+radius_bottom_right = 12
+concave_edge_corners = false                       # v4 bar.outerCorners = false
+margin_ends = 48                                   # v4 bar.marginHorizontal
+margin_edge = 6                                    # v4 bar.marginVertical
+padding = 6                                        # v4 bar.contentPadding
+widget_spacing = 12                                # v4 bar.widgetSpacing
+font_scale = 1.0                                   # v4 bar.fontScale
+show_on_workspace_switch = true                    # v4 bar.showOnWorkspaceSwitch
+shadow = true                                      # v4 general.enableShadows
+show_tooltip = true                                # v4 ui.tooltipsEnabled
+
+# v4 lanes: left -> start, center -> center, right -> end
+start = ["launcher", "workspaces", "media", "active_window"]
+center = []
+end = ["cpu", "temp", "ram", "volume", "battery", "network", "clock", "tray", "notifications", "control-center"]
+
+# ── Bar widgets (v4 bar.widgets.*) ──────────────────────────────────────────
+[widget.launcher]
+type = "launcher"
+
+[widget.workspaces]                                # v4 Workspace
+type = "workspaces"
+style = "regular"
+show_labels = true
+label_source = "id"                                # v4 labelMode = "index"
+max_label_chars = 2                                # v4 characterCount
+focused_color = "secondary"                        # v4 focusedColor
+occupied_color = "secondary"                       # v4 occupiedColor
+empty_color = "secondary"                          # v4 emptyColor
+pill_scale = 0.6                                   # v4 pillSize
+labels_only_when_occupied = true                   # v4 showLabelsOnlyWhenOccupied
+hide_when_empty = false                            # v4 hideUnoccupied
+
+[widget.media]                                     # v4 MediaMini
+type = "media"
+max_length = 145                                   # v4 maxWidth
+artist_first = true                                # v4 showArtistFirst
+title_scroll = "on_hover"                          # v4 scrollingMode = "hover"
+
+[widget.active_window]                             # v4 ActiveWindow
+type = "active_window"
+max_length = 500                                   # v4 maxWidth
+display = "text_only"                              # v4 showIcon=false, showText=true
+title_scroll = "on_hover"                          # v4 scrollingMode = "hover"
+
+# v4 Sysmon was one combined widget; v5 uses one widget per stat.
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"                                 # v4 showCpuUsage
+
+[widget.temp]
+type = "sysmon"
+stat = "cpu_temp"                                  # v4 showCpuTemp
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_used"                                  # v4 showMemoryUsage
+
+[widget.volume]                                    # v4 Volume
+type = "volume"
+device = "output"
+
+[widget.battery]                                   # v4 Battery
+type = "battery"
+
+[widget.network]                                   # v4 Network
+type = "network"
+
+[widget.clock]                                     # v4 Clock
+type = "clock"
+format = "{:%H:%M %a, %b %d}"                      # v4 formatHorizontal
+vertical_format = "{:%H\n%M - %d %m}"              # v4 formatVertical
+tooltip_format = "{:%H:%M %a, %b %d}"              # v4 tooltipFormat
+
+[widget.tray]                                      # v4 Tray
+type = "tray"
+
+[widget.notifications]                             # v4 NotificationHistory
+type = "notifications"
+
+[widget.control-center]                            # v4 ControlCenter
+type = "control-center"
+
+# ── Control Center (v4 controlCenter.*) ─────────────────────────────────────
+[control_center]
+sidebar = "compact"
+sidebar_section = "compact"
+show_session_button = true
+show_shortcut_labels = true
+width = 700
+
+[control_center.calendar]
+show_events_card = true                            # v4 location.showCalendarEvents
+show_week_numbers = false                          # v4 location.showWeekNumberInCalendar
+
+[[control_center.shortcuts]]
+type = "wifi"                                      # v4 Network
+
+[[control_center.shortcuts]]
+type = "bluetooth"                                 # v4 Bluetooth
+
+[[control_center.shortcuts]]
+type = "caffeine"                                  # v4 KeepAwake
+
+[[control_center.shortcuts]]
+type = "nightlight"                                # v4 NightLight
+
+[[control_center.shortcuts]]
+type = "notification"                              # v4 Notifications
+
+[[control_center.shortcuts]]
+type = "power_profile"                             # v4 PowerProfile
+
+# ── Desktop widgets / backdrop (v4 desktopWidgets.*) ────────────────────────
+[desktop_widgets]
+enabled = false                                    # v4 desktopWidgets.enabled = false
+schema_version = 2
+
+[backdrop]
+enabled = false                                    # v4 wallpaper.overviewEnabled = false
+blur_intensity = 0.4                               # v4 wallpaper.overviewBlur
+tint_intensity = 0.6                               # v4 wallpaper.overviewTint
+
+# ── Wallpaper (v4 wallpaper.*) ──────────────────────────────────────────────
+[wallpaper]
+enabled = true
+directory = "/home/blaster/Pictures/Wallpapers"    # v4 wallpaper.directory
+fill_color = "#000000"                             # v4 wallpaper.fillColor
+fill_mode = "crop"                                 # v4 wallpaper.fillMode
+per_monitor_directories = false                    # v4 enableMultiMonitorDirectories
+transition = ["fade", "disc", "stripes", "wipe", "zoom", "honeycomb"]  # v4 transitionType (pixelate unsupported in v5)
+transition_duration = 1500                         # v4 transitionDuration
+edge_smoothness = 0.05                             # v4 transitionEdgeSmoothness
+transition_on_startup = false                      # v4 skipStartupTransition = false
+
+[wallpaper.automation]
+enabled = false                                    # v4 automationEnabled
+interval_seconds = 300                             # v4 randomIntervalSec
+order = "random"                                   # v4 wallpaperChangeMode
+recursive = true                                   # v4 viewMode = "recursive"
+
+# ── Location / weather (v4 location.*) ──────────────────────────────────────
+[location]
+address = "Marino, Italy"                          # v4 location.name
+auto_locate = false                                # v4 location.autoLocate
+custom_schedule = true                             # v4 nightLight.autoSchedule
+sunrise = "06:30"                                  # v4 manualSunrise
+sunset = "18:30"                                   # v4 manualSunset
+
+[weather]
+enabled = true                                     # v4 weatherEnabled
+effects = true                                     # v4 weatherShowEffects
+unit = "metric"                                    # v4 useFahrenheit = false
+
+# ── Night light (v4 nightLight.*) ───────────────────────────────────────────
+[nightlight]
+enabled = false                                    # v4 nightLight.enabled
+force = false                                      # v4 nightLight.forced
+temperature_day = 6500                             # v4 dayTemp
+temperature_night = 4000                           # v4 nightTemp
+
+# ── Idle (v4 idle.*) ────────────────────────────────────────────────────────
+[idle]
+behavior_order = ["lock", "screen-off", "suspend"]
+pre_action_fade_seconds = 5.0                      # v4 idle.fadeDuration
+
+[idle.behavior.lock]
+action = "lock"
+enabled = true                                     # v4 idle.enabled
+timeout = 660                                      # v4 idle.lockTimeout
+
+[idle.behavior.screen-off]
+action = "screen_off"
+enabled = true
+timeout = 350                                      # v4 idle.screenOffTimeout
+
+[idle.behavior.suspend]
+action = "lock_and_suspend"                        # v4 general.lockOnSuspend = true
+enabled = false                                    # v4 idle.suspendTimeout = 0
+timeout = 0
+
+# ── Lock screen (v4 general.lock*) ──────────────────────────────────────────
+[lockscreen]
+enabled = true
+lock_before_suspend = true                         # v4 general.lockOnSuspend
+fingerprint = false                                # v4 general.allowPasswordWithFprintd = false
+blurred_desktop = false
+transition = []                                    # v4 general.lockScreenAnimations = false
+blur_intensity = 0.0                               # v4 general.lockScreenBlur
+tint_intensity = 0.0                               # v4 general.lockScreenTint
+monitors = []                                      # v4 general.lockScreenMonitors
+
+# ── Notifications (v4 notifications.*) ──────────────────────────────────────
+[notification]
+enable_daemon = true                               # v4 notifications.enabled
+position = "top_right"                             # v4 notifications.location
+layer = "overlay"                                  # v4 notifications.overlayLayer
+background_opacity = 1.0                           # v4 notifications.backgroundOpacity
+keep_dismissed_in_history = false                  # v4 notifications.clearDismissed = true
+monitors = []                                      # v4 notifications.monitors
+
+# ── OSD (v4 osd.*) ──────────────────────────────────────────────────────────
+[osd]
+enabled = true                                     # v4 osd.enabled
+position = "top_right"                             # v4 osd.location
+background_opacity = 1.0                           # v4 osd.backgroundOpacity
+hide_delay_ms = 2000                               # v4 osd.autoHideMs
+monitors = []                                      # v4 osd.monitors
+
+# ── Audio (v4 audio.*) ──────────────────────────────────────────────────────
+[audio]
+enable_overdrive = false                           # v4 audio.volumeOverdrive
+enable_notification_sounds = false                 # v4 notifications.sounds.enabled = false
+sound_volume = 0.5                                 # v4 notifications.sounds.volume
+
+# ── Brightness (v4 brightness.*) ────────────────────────────────────────────
+[brightness]
+enable_ddcutil = false                             # v4 brightness.enableDdcSupport
+
+# ── Calendar (v4 calendar.* / location.*) ───────────────────────────────────
+[calendar]
+enabled = true                                     # v4 location.showCalendarEvents
+
+# ── System monitor thresholds (v4 systemMonitor.*) ──────────────────────────
+[system.monitor]
+cpu_usage_activity_threshold = 80.0                # v4 cpuWarningThreshold
+cpu_usage_critical_threshold = 90.0                # v4 cpuCriticalThreshold
+cpu_temp_activity_threshold = 80.0                 # v4 tempWarningThreshold
+cpu_temp_critical_threshold = 90.0                 # v4 tempCriticalThreshold
+ram_pct_activity_threshold = 80.0                  # v4 memWarningThreshold
+ram_pct_critical_threshold = 90.0                  # v4 memCriticalThreshold
+swap_pct_activity_threshold = 80.0                 # v4 swapWarningThreshold
+swap_pct_critical_threshold = 90.0                 # v4 swapCriticalThreshold
+disk_used_pct_activity_threshold = 80.0            # v4 diskWarningThreshold
+disk_used_pct_critical_threshold = 90.0            # v4 diskCriticalThreshold
+gpu_usage_activity_threshold = 80.0                # v4 gpuWarningThreshold
+gpu_usage_critical_threshold = 90.0                # v4 gpuCriticalThreshold
+gpu_temp_activity_threshold = 80.0
+gpu_temp_critical_threshold = 90.0
+
+[battery]
+warning_threshold = 20                             # v4 systemMonitor.batteryWarningThreshold

@@ -280,7 +280,7 @@ spawn-at-startup "nm-applet"
 spawn-at-startup "/usr/libexec/gsd-settings"
 spawn-at-startup "/usr/libexec/polkit-gnome-authentication-agent-1"
 spawn-at-startup "gnome-keyring-daemon"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia"
 
 hotkey-overlay {
     // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
